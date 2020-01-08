@@ -18,6 +18,17 @@ class App extends React.Component {
       e.target.value="";
     }
   }
+
+
+  trash(y) {
+        console.log(y);
+        const {lista}= this.state;
+        lista.splice(y,1);
+        this.setState({
+          lista: lista
+        })
+        
+  }
   render() {
     return (
       <div className="container">
@@ -33,6 +44,7 @@ class App extends React.Component {
                   return (
                     <li key={i} className="list-group-item- d-flex justify-content-between">
                       {lista}
+                      <i className="fas fa-trash" onClick={y => this.trash(i)}></i>
                     </li>
                   )
                 })
